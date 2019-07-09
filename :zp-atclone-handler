@@ -15,7 +15,7 @@ for mod in "${mods[@]}"; do
     # Remove only leading and trailing whitespace
     parts=( "${parts[@]//((#s)[[:space:]]##|[[:space:]]##(#e))/}" )
 
-    print -r -- $'\n'"z-p-submods: ${ZPLGM[col-bar]}@@${ZPLGM[col-rst]} Cloning submodule ${ZPLGM[col-bar]}@@${ZPLGM[col-rst]} ${ZPLGM[col-pname]}${parts[1]}${ZPLGM[col-rst]}" \
+    print -r -- $'\n'"z-p-submods: ${ZPLGM[col-bar]}@@${ZPLGM[col-rst]} Cloning submodule ${ZPLGM[col-bar]}@@${ZPLGM[col-rst]}: ${ZPLGM[col-pname]}${parts[1]}${ZPLGM[col-rst]}" \
             "to ${ZPLGM[col-info]}${parts[2]}${ZPLGM[col-rst]}"
     if [[ "${parts[1]}" != (http|https|ftp|ftps|scp)://* ]]; then
         parts[1]="https://github.com/${parts[1]}"
