@@ -1,0 +1,33 @@
+emulate -L zsh -o extendedglob -o warncreateglobal -o typesetsilent
+
+[[ -z "${ZPLG_ICE[submods]}" ]] && return 0
+
+[[ "$1" = plugin ]] && \
+    local type="$1" user="$2" plugin="$3" id_as="$4" dir="$5" || \
+    local type="$1" url="$2" id_as="$3" dir="$4"
+
+local -a mods parts lines
+local mod
+
+mods=( ${(@s.;.)ZPLG_ICE[submods]} )
+for mod in "${mods[@]}"; do
+    parts=( "${(@s:->:)mod}" )
+    # Remove only leading and trailing whitespace
+    parts=( "${parts[@]//((#s)[[:space:]]##|[[:space:]]##(#e))/}" )
+
+    print -r -- $'\n'"z-p-submods: ${ZPLGM[col-bar]}@@${ZPLGM[col-rst]} Updating submodule ${ZPLGM[col-bar]}@@${ZPLGM[col-rst]} ${ZPLGM[col-pname]}${parts[1]}${ZPLGM[col-rst]}" \
+            "(directory: ${ZPLGM[col-info]}${parts[2]}${ZPLGM[col-rst]})"
+    if [[ "${parts[1]}" != (http|https|ftp|ftps|scp)://* ]]; then
+        parts[1]="https://github.com/${parts[1]}"
+    fi
+
+    command git -C "$dir/${parts[2]}" fetch
+    lines=( ${(f)"$(command git -C "$dir/${parts[2]}" log --color --date=short --pretty=format:'%Cgreen%cd %h %Creset%s %Cred%d%Creset%n' ..FETCH_HEAD)"} )
+    # Remove the (origin/master ...) segments, to expect only tags to appear
+    lines=( "${(S)lines[@]//\(([,[:blank:]]#(origin|HEAD|master)[^a-zA-Z]##(HEAD|origin|master)[,[:blank:]]#)#\)/}" )
+    print -rl -- "${lines[@]}"
+    command git -C "$dir/${parts[2]}" pull --no-stat
+done
+
+# vim:ft=zsh:sts=4:sw=4:et
+
