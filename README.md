@@ -1,21 +1,24 @@
 # Introduction
 
-A z-plugin (i.e. a plugin for the [Zplugin](https://github.com/zdharma/zplugin)) that
+A z-plugin (i.e. a plugin for the [Zplugin](https://github.com/zdharma/zplugin) –
+[more information](https://github.com/zdharma/zplugin/doc/Z-PLUGINS.adoc)) that
 allows Zpluugin to clone submodules when installing a plugin or snippet.
 
-It adds `submod''` ice to Zplugin with a following syntax:
+It adds `submods''` ice to Zplugin which has the following syntax:
 
 ```zsh
-submod'{user}/{plugin} -> {output directory}; ...'
+submods'{user}/{plugin} -> {output directory}; ...'
 ```
 
-So the example command using the z-plugin and its ice is e.g.
+An example command utilizing the z-plugin and its ice:
 
 ```zsh
 # Load the zsh-autosuggestions plugin via Prezto module autosuggestions
-zplugin ice svn submod'zsh-users/zsh-autosuggestions -> external'
+zplugin ice svn submods'zsh-users/zsh-autosuggestions -> external'
 zplugin snippet PZT::modules/autosuggestions
 ```
+
+![screenshot](https://raw.githubusercontent.com/zdharma/z-p-submods/master/images/screenshot.png)
 
 # Installation
 
@@ -25,5 +28,6 @@ Simply load as a plugin. This will install the z-plugin within Zplugin:
 zplugin light zdharma/z-p-submods
 ```
 
+After this you can use the `submods''` ice.
 <!-- vim:tw=85
 -->
