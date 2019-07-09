@@ -2,7 +2,7 @@
 
 A z-plugin (i.e. a plugin for the [Zplugin](https://github.com/zdharma/zplugin) –
 [more information](https://github.com/zdharma/zplugin/doc/Z-PLUGINS.adoc)) that
-allows Zpluugin to clone submodules when installing a plugin or snippet.
+allows Zplugin to clone submodules when installing a plugin or snippet.
 
 It adds `submods''` ice to Zplugin which has the following syntax:
 
