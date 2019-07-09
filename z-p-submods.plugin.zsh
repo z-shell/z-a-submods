@@ -10,5 +10,5 @@ autoload :zp-atclone-handler :zp-atpull-handler
         :zp-atclone-handler :zp-atclone-help-handler \
         "submods''" # register a new ice-mod: submods''
 
-@zplg-register-z-plugin "z-p-submods" hook:atpull \
+@zplg-register-z-plugin "z-p-submods" hook:%atpull \
         :zp-atpull-handler :zp-atpull-help-handler
