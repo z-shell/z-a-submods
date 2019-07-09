@@ -6,7 +6,7 @@ that allows Zplugin to clone additional submodules when installing a plugin or
 snippet. The submodules are then automatically updated on the `zplugin update ...`
 command.
 
-It adds `submods''` ice to Zplugin which has the following syntax:
+This z-plugin adds `submods''` ice to Zplugin which has the following syntax:
 
 ```zsh
 submods'{user}/{plugin} -> {output directory}; ...'
