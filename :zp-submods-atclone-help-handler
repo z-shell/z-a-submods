@@ -1,0 +1,14 @@
+print -- "\nThe ice ${ZPLGM[col-info2]}submods''${ZPLGM[col-rst]} is currently" \
+        "being registered by the ${ZPLGM[col-pname]}z-p-submods${ZPLGM[col-rst]} z-plugin"
+print -- "Its syntax is:" \
+"${ZPLGM[col-info2]}submods'${ZPLGM[col-uname]}{user}${ZPLGM[col-rst]}/"\
+"${ZPLGM[col-pname]}{plugin}${ZPLGM[col-info2]} –>" \
+"${ZPLGM[col-p]}{output-dir}${ZPLGM[col-rst]}${ZPLGM[col-info2]}; ...'${ZPLGM[col-rst]}"
+print -- "It will clone the ${ZPLGM[col-uname]}{user}${ZPLGM[col-rst]}/"\
+"${ZPLGM[col-pname]}{plugin}${ZPLGM[col-rst]} from GitHub into the" \
+"${ZPLGM[col-p]}{output-dir}${ZPLGM[col-rst]}"
+print -- "inside the containing plugin or snippet."
+print -- "The submodule will be correctly updated on" \
+"${ZPLGM[col-info2]}\`zplugin update ...'${ZPLGM[col-rst]}"
+
+# vim:ft=zsh:sts=4:sw=4:et:tw=75
