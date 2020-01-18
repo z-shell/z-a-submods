@@ -1,6 +1,6 @@
 emulate -L zsh -o extendedglob -o warncreateglobal -o typesetsilent
 
-[[ -z "${ZPLG_ICE[submods]}" ]] && return 0
+[[ -z "${ZINIT_ICE[submods]}" ]] && return 0
 
 [[ "$1" = plugin ]] && \
     local type="$1" user="$2" plugin="$3" id_as="$4" dir="$5" || \
@@ -9,14 +9,14 @@ emulate -L zsh -o extendedglob -o warncreateglobal -o typesetsilent
 local -a mods parts lines
 local mod
 
-mods=( ${(@s.;.)ZPLG_ICE[submods]} )
+mods=( ${(@s.;.)ZINIT_ICE[submods]} )
 for mod in "${mods[@]}"; do
     parts=( "${(@s:->:)mod}" )
     # Remove only leading and trailing whitespace
     parts=( "${parts[@]//((#s)[[:space:]]##|[[:space:]]##(#e))/}" )
 
-    print -r -- $'\n'"z-p-submods: ${ZPLGM[col-bar]}@@${ZPLGM[col-rst]} Updating submodule ${ZPLGM[col-bar]}@@${ZPLGM[col-rst]}: ${ZPLGM[col-pname]}${parts[1]}${ZPLGM[col-rst]}" \
-            "(directory: ${ZPLGM[col-info]}${parts[2]}${ZPLGM[col-rst]})"
+    print -r -- $'\n'"z-p-submods: ${ZINIT[col-bar]}@@${ZINIT[col-rst]} Updating submodule ${ZINIT[col-bar]}@@${ZINIT[col-rst]}: ${ZINIT[col-pname]}${parts[1]}${ZINIT[col-rst]}" \
+            "(directory: ${ZINIT[col-info]}${parts[2]}${ZINIT[col-rst]})"
     if [[ "${parts[1]}" != (http|https|ftp|ftps|scp)://* ]]; then
         parts[1]="https://github.com/${parts[1]}"
     fi
