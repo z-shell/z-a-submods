@@ -6,9 +6,9 @@ print -- "Its syntax is:" \
 "${ZINIT[col-p]}{output-dir}${ZINIT[col-rst]}${ZINIT[col-info2]}; ...'${ZINIT[col-rst]}"
 print -- "It will clone the ${ZINIT[col-uname]}{user}${ZINIT[col-rst]}/"\
 "${ZINIT[col-pname]}{plugin}${ZINIT[col-rst]} from GitHub into the" \
-"${ZINIT[col-p]}{output-dir}${ZINIT[col-rst]}"
-print -- "inside the containing plugin or snippet."
-print -- "The submodule will be correctly updated on" \
+"${ZINIT[col-p]}{output-dir}${ZINIT[col-rst]}" \
+"inside the containing plugin or snippet." \
+"The submodule will be correctly updated on" \
 "${ZINIT[col-info2]}\`zinit update ...'${ZINIT[col-rst]}"
 
 # vim:ft=zsh:sts=4:sw=4:et:tw=75
