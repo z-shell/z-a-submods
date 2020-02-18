@@ -4,36 +4,35 @@
 
 # Introduction
 
-A z-plugin (i.e. a plugin for the [Zplugin](https://github.com/zdharma/zplugin) –
-[more information](https://github.com/zdharma/zplugin/tree/master/doc/Z-PLUGINS.adoc))
-that allows Zplugin to clone additional submodules when installing a plugin or
-snippet. The submodules are then automatically updated on the `zplugin update ...`
+A annex (i.e. an extension for [Zinit](https://github.com/zdharma/zinit) –
+[more information](https://zdharma.org/zinit/wiki/Annexes/))
+that allows Zinit to clone additional submodules when installing a plugin or
+snippet. The submodules are then automatically updated on the `zinit update ...`
 command.
 
-This z-plugin adds `submods''` ice to Zplugin which has the following syntax:
+This annex adds `submods''` ice to Zinit which has the following syntax:
 
 ```zsh
 submods'{user}/{plugin} -> {output directory}; ...'
 ```
 
-An example command utilizing the z-plugin and its ice:
+An example command utilizing the annex and its ice:
 
 ```zsh
 # Load the `zsh-autosuggestions' plugin via Prezto module: `autosuggestions'
-zplugin ice svn submods'zsh-users/zsh-autosuggestions -> external'
-zplugin snippet PZT::modules/autosuggestions
+zinit ice svn submods'zsh-users/zsh-autosuggestions -> external'
+zinit snippet PZT::modules/autosuggestions
 ```
 
-![screenshot](https://raw.githubusercontent.com/zdharma/z-p-submods/master/images/screenshot.png)
+![screenshot](https://raw.githubusercontent.com/zinit-zsh/z-a-submods/master/images/screenshot.png)
 
 # Installation
 
-Simply load as a plugin. This will install the z-plugin within Zplugin:
+Simply load as a plugin. This will install the annex within Zinit:
 
 ```zsh
-zplugin light zdharma/z-p-submods
+zinit light zinit-zsh/z-a-submods
 ```
 
 After this you can use the `submods''` ice.
-<!-- vim:tw=85
--->
+<!-- vim:set tw=85: -->
