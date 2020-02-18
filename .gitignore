@@ -2,7 +2,7 @@
 
 *.zwc
 *zcompdump*
-._zplugin
+._zinit
 
 ### Vim
 # Swap
