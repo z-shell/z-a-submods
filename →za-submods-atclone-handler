@@ -15,7 +15,7 @@ for mod in "${mods[@]}"; do
     # Remove only leading and trailing whitespace
     parts=( "${parts[@]//((#s)[[:space:]]##|[[:space:]]##(#e))/}" )
 
-    print -r -- $'\n'"z-p-submods: ${ZINIT[col-bar]}@@${ZINIT[col-rst]} Cloning submodule ${ZINIT[col-bar]}@@${ZINIT[col-rst]}: ${ZINIT[col-pname]}${parts[1]}${ZINIT[col-rst]}" \
+    print -r -- "z-p-submods: ${ZINIT[col-bar]}@@${ZINIT[col-rst]} Cloning submodule ${ZINIT[col-bar]}@@${ZINIT[col-rst]}: ${ZINIT[col-pname]}${parts[1]}${ZINIT[col-rst]}" \
             "to ${ZINIT[col-info]}${parts[2]}${ZINIT[col-rst]}"
     if [[ "${parts[1]}" != (http|https|ftp|ftps|scp)://* ]]; then
         parts[1]="https://github.com/${parts[1]}"
