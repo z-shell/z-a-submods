@@ -25,7 +25,7 @@ for mod in "${mods[@]}"; do
     lines=( ${(f)"$(command git -C "$dir/${parts[2]}" log --color --date=short --pretty=format:'%Cgreen%cd %h %Creset%s %Cred%d%Creset%n' ..FETCH_HEAD)"} )
     # Remove the (origin/master ...) segments, to expect only tags to appear
     lines=( "${(S)lines[@]//\(([,[:blank:]]#(origin|HEAD|master)[^a-zA-Z]##(HEAD|origin|master)[,[:blank:]]#)#\)/}" )
-    print -rl -- "${lines[@]}"
+    (( $#lines )) && print -rl -- "${lines[@]}"
     command git -C "$dir/${parts[2]}" pull --no-stat
 done
 
