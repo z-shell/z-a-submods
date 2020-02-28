@@ -1,5 +1,5 @@
 print -- "\nThe ice ${ZINIT[col-info2]}submods''${ZINIT[col-rst]} is currently" \
-        "being registered by the ${ZINIT[col-pname]}z-p-submods${ZINIT[col-rst]} z-plugin"
+        "being registered by the ${ZINIT[col-pname]}z-a-submods${ZINIT[col-rst]} z-plugin"
 print -- "Its syntax is:" \
 "${ZINIT[col-info2]}submods'${ZINIT[col-uname]}{user}${ZINIT[col-rst]}/"\
 "${ZINIT[col-pname]}{plugin}${ZINIT[col-info2]} –>" \
