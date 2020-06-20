@@ -26,7 +26,7 @@ for mod in "${mods[@]}"; do
     # Remove the (origin/master ...) segments, to expect only tags to appear
     lines=( "${(S)lines[@]//\(([,[:blank:]]#(origin|HEAD|master)[^a-zA-Z]##(HEAD|origin|master)[,[:blank:]]#)#\)/}" )
     (( $#lines )) && print -rl -- "${lines[@]}"
-    command git -C "$dir/${parts[2]}" pull  --no-stat ${=ZINIT_ICE[pullopts]:---ff-only} origin |& command egrep -v '(FETCH_HEAD|up to date\.|From.*://)' | \
+    command git -C "$dir/${parts[2]}" pull  --no-stat ${=ZINIT_ICE[pullopts]:---ff-only} origin |& command egrep -v '(FETCH_HEAD|up to date\.|From.*://)'
 done
 
 # vim:ft=zsh:sts=4:sw=4:et
