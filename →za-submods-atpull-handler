@@ -1,6 +1,6 @@
 emulate -L zsh -o extendedglob -o warncreateglobal -o typesetsilent
 
-[[ -z "${ZINIT_ICE[submods]}" ]] && return 0
+[[ -z "${ICE[submods]}" ]] && return 0
 
 [[ "$1" = plugin ]] && \
     local type="$1" user="$2" plugin="$3" id_as="$4" dir="$5" || \
@@ -9,7 +9,7 @@ emulate -L zsh -o extendedglob -o warncreateglobal -o typesetsilent
 local -a mods parts lines
 local mod
 
-mods=( ${(@s.;.)ZINIT_ICE[submods]} )
+mods=( ${(@s.;.)ICE[submods]} )
 for mod in "${mods[@]}"; do
     parts=( "${(@s:->:)mod}" )
     # Remove only leading and trailing whitespace
@@ -26,7 +26,7 @@ for mod in "${mods[@]}"; do
     # Remove the (origin/master ...) segments, to expect only tags to appear
     lines=( "${(S)lines[@]//\(([,[:blank:]]#(origin|HEAD|master)[^a-zA-Z]##(HEAD|origin|master)[,[:blank:]]#)#\)/}" )
     (( $#lines )) && print -rl -- "${lines[@]}"
-    command git -C "$dir/${parts[2]}" pull  --no-stat ${=ZINIT_ICE[pullopts]:---ff-only} origin |& command egrep -v '(FETCH_HEAD|up to date\.|From.*://)'
+    command git -C "$dir/${parts[2]}" pull  --no-stat ${=ICE[pullopts]:---ff-only} origin |& command egrep -v '(FETCH_HEAD|up to date\.|From.*://)'
 done
 
 # vim:ft=zsh:sts=4:sw=4:et
