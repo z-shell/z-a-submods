@@ -29,5 +29,3 @@ for mod in "${mods[@]}"; do
     command git -C "$dir/${parts[2]}" pull  --no-stat ${=ICE[pullopts]:---ff-only} origin |& command egrep -v '(FETCH_HEAD|up to date\.|From.*://)'
 done
 
-# vim:ft=zsh:sts=4:sw=4:et
-
