@@ -1,5 +1,5 @@
 print -- "\nThe ice ${ZINIT[col-info2]}submods''${ZINIT[col-rst]} is currently" \
-        "being registered by the ${ZINIT[col-pname]}z-a-submods${ZINIT[col-rst]} z-plugin"
+        "being registered by the ${ZINIT[col-pname]}z-a-submods${ZINIT[col-rst]}"
 print -- "Its syntax is:" \
 "${ZINIT[col-info2]}submods'${ZINIT[col-uname]}{user}${ZINIT[col-rst]}/"\
 "${ZINIT[col-pname]}{plugin}${ZINIT[col-info2]} –>" \
@@ -9,6 +9,4 @@ print -- "It will clone the ${ZINIT[col-uname]}{user}${ZINIT[col-rst]}/"\
 "${ZINIT[col-p]}{output-dir}${ZINIT[col-rst]}" \
 "inside the containing plugin or snippet." \
 "The submodule will be correctly updated on" \
-"${ZINIT[col-info2]}\`zinit update ...'${ZINIT[col-rst]}"
-
-# vim:ft=zsh:sts=4:sw=4:et:tw=75
+"${ZINIT[col-info2]}\`zi update ...'${ZINIT[col-rst]}"
