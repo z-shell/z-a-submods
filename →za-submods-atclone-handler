@@ -22,7 +22,5 @@ for mod in "${mods[@]}"; do
     fi
 
     command git -C "$dir" clone --progress "${parts[1]}" "${parts[2]}" |& \
-        ${ZINIT[BIN_DIR]}/git-process-output.zsh
+        ${ZINIT[BIN_DIR]}/lib/zsh/git-process-output.zsh
 done
-
-# vim:ft=zsh:sts=4:sw=4:et
