@@ -2,6 +2,7 @@
 
 *.zwc
 *zcompdump*
+._zi
 ._zinit
 
 ### Vim

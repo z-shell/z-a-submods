@@ -1,3 +1,5 @@
+# shellcheck shell=sh disable=SC1009,1073,1027,1036,1072
+
 emulate -L zsh -o extendedglob -o warncreateglobal -o typesetsilent
 
 [[ -z "${ICE[submods]}" ]] && return 0
@@ -15,8 +17,8 @@ for mod in "${mods[@]}"; do
     # Remove only leading and trailing whitespace
     parts=( "${parts[@]//((#s)[[:space:]]##|[[:space:]]##(#e))/}" )
 
-    print -r -- "z-a-submods: ${ZINIT[col-bar]}@@${ZINIT[col-rst]} Updating submodule ${ZINIT[col-bar]}@@${ZINIT[col-rst]}: ${ZINIT[col-pname]}${parts[1]}${ZINIT[col-rst]}" \
-            "(directory: ${ZINIT[col-info]}${parts[2]}${ZINIT[col-rst]})"
+    print -r -- "z-a-submods: ${ZI[col-bar]}@@${ZI[col-rst]} Updating submodule ${ZI[col-bar]}@@${ZI[col-rst]}: ${ZI[col-pname]}${parts[1]}${ZI[col-rst]}" \
+            "(directory: ${ZI[col-info]}${parts[2]}${ZI[col-rst]})"
     if [[ "${parts[1]}" != (http|https|ftp|ftps|scp)://* ]]; then
         parts[1]="https://github.com/${parts[1]}"
     fi
