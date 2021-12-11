@@ -1,12 +1,6 @@
-print -- "\nThe ice ${ZI[col-info2]}submods''${ZI[col-rst]} is currently" \
-        "being registered by the ${ZI[col-pname]}z-a-submods${ZI[col-rst]}"
-print -- "Its syntax is:" \
-"${ZI[col-info2]}submods'${ZI[col-uname]}{user}${ZI[col-rst]}/"\
-"${ZI[col-pname]}{plugin}${ZI[col-info2]} –>" \
-"${ZI[col-p]}{output-dir}${ZI[col-rst]}${ZI[col-info2]}; ...'${ZI[col-rst]}"
+print -- "\nThe ice ${ZI[col-info2]}submods''${ZI[col-rst]} is currently" "being registered by the ${ZI[col-pname]}z-a-submods${ZI[col-rst]}"
+print -- "Its syntax is:" "${ZI[col-info2]}submods'${ZI[col-uname]}{user}${ZI[col-rst]}/"\
+"${ZI[col-pname]}{plugin}${ZI[col-info2]} –>" "${ZI[col-p]}{output-dir}${ZI[col-rst]}${ZI[col-info2]}; ...'${ZI[col-rst]}"
 print -- "It will clone the ${ZI[col-uname]}{user}${ZI[col-rst]}/"\
-"${ZI[col-pname]}{plugin}${ZI[col-rst]} from GitHub into the" \
-"${ZI[col-p]}{output-dir}${ZI[col-rst]}" \
-"inside the containing plugin or snippet." \
-"The submodule will be correctly updated on" \
-"${ZI[col-info2]}\`zi update ...'${ZI[col-rst]}"
+"${ZI[col-pname]}{plugin}${ZI[col-rst]} from GitHub into the" "${ZI[col-p]}{output-dir}${ZI[col-rst]}" "inside the containing plugin or snippet." \
+"The submodule will be correctly updated on" "${ZI[col-info2]}\`zi update ...'${ZI[col-rst]}"
