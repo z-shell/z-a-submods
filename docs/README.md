@@ -1,12 +1,9 @@
-- [Introduction](#introduction)
-- [Installation](#installation)
-
-# Introduction
-
-> **[?]**
-> This repository not compatible with previous versions (zplugin, zinit).
->
-> Please upgrade to [ZI](https://github.com/z-shell-zi)
+<h2 align="center">
+  <a href="https://github.com/z-shell/zi">
+    <img src="https://github.com/z-shell/zi/raw/main/docs/images/logo.svg" alt="Logo" width="80" height="80">
+  </a>
+❮ ZI ❯ Annex - submods
+</h2>
 
 A annex (i.e. an extension for – [ZI](https://z-shell.github.io/zi))
 that allows to clone additional submodules when installing a plugin or
@@ -27,7 +24,7 @@ zi ice svn submods'zsh-users/zsh-autosuggestions -> external'
 zi snippet PZT::modules/autosuggestions
 ```
 
-# Installation
+## Installation
 
 Simply load as a plugin. This will install the annex within ZI:
 
