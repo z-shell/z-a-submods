@@ -4,8 +4,8 @@ emulate -L zsh -o extendedglob -o warncreateglobal -o typesetsilent
 [[ -z "${ICE[submods]}" ]] && return 0
 
 [[ "$1" = plugin ]] && \
-  local type="$1" user="$2" plugin="$3" id_as="$4" dir="$5" || \
-  local type="$1" url="$2" id_as="$3" dir="$4"
+local type="$1" user="$2" plugin="$3" id_as="$4" dir="$5" || \
+local type="$1" url="$2" id_as="$3" dir="$4"
 
 local -a mods parts lines
 local mod
@@ -22,7 +22,7 @@ for mod in "${mods[@]}"; do
   if [[ "${parts[1]}" != (http|https|ftp|ftps|scp)://* ]]; then
     parts[1]="https://github.com/${parts[1]}"
   fi
-
+#TODO: #2 remove git -C
   command git -C "$dir/${parts[2]}" fetch
   lines=( ${(f)"$(command git -C "$dir/${parts[2]}" log --color --date=short --pretty=format:'%Cgreen%cd %h %Creset%s %Cred%d%Creset%n' ..FETCH_HEAD)"} )
   # Remove the (origin/master ...) segments, to expect only tags to appear

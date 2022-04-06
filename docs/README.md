@@ -1,9 +1,9 @@
-<h2 align="center">
+<h1 align="center">
   <a href="https://github.com/z-shell/zi">
-    <img src="https://github.com/z-shell/zi/raw/main/docs/images/logo.svg" alt="Logo" width="80" height="80">
+    <img src="https://github.com/z-shell/zi/raw/main/docs/images/logo.svg" alt="Logo" width="80" height="80" />
   </a>
 ❮ ZI ❯ Annex - submods
-</h2>
+</h1>
 
 A annex (i.e. an extension for – [ZI](https://z-shell.github.io/zi))
 that allows to clone additional submodules when installing a plugin or
