@@ -11,7 +11,6 @@ if [[ $PMSPEC != *f* ]] {
 
 # The Proposed Function-Name Prefixes
 # https://z.digitalclouds.dev/community/zsh_plugin_standard#the-proposed-function-name-prefixes
-# Handler's are using the ":" symbol as the namespacer
 autoload -Uz →za-submods-atclone-handler \
 →za-submods-atpull-handler \
 →za-submods-atclone-help-handler \
