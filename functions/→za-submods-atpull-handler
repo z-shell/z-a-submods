@@ -1,3 +1,5 @@
+# -*- mode: zsh; sh-indentation: 2; indent-tabs-mode: nil; sh-basic-offset: 2; -*-
+# vim: ft=zsh sw=2 ts=2 et
 
 emulate -L zsh -o extendedglob -o warncreateglobal -o typesetsilent
 
@@ -28,5 +30,5 @@ for mod in "${mods[@]}"; do
   # Remove the (origin/master ...) segments, to expect only tags to appear
   lines=( "${(S)lines[@]//\(([,[:blank:]]#(origin|HEAD|main|master)[^a-zA-Z]##(HEAD|origin|main|master)[,[:blank:]]#)#\)/}" )
   (( $#lines )) && print -rl -- "${lines[@]}"
-  command git -C "$dir/${parts[2]}" pull  --no-stat ${=ICE[pullopts]:---ff-only} origin |& command egrep -v '(FETCH_HEAD|up to date\.|From.*://)'
+  command git -C "$dir/${parts[2]}" pull --no-stat ${=ICE[pullopts]:---ff-only} origin |& command egrep -v '(FETCH_HEAD|up to date\.|From.*://)'
 done
