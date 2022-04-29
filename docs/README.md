@@ -1,10 +1,13 @@
+<div align="center"><table><tr><td>
 <h1 align="center">
   <a href="https://github.com/z-shell/zi">
-    <img src="https://github.com/z-shell/zi/raw/main/docs/images/logo.svg" alt="Logo" width="80" height="80" />
+    <img src="https://github.com/z-shell/zi/raw/main/docs/images/logo.svg" alt="Logo" width="60" height="60" />
   </a>
 ❮ ZI ❯ Annex - submods
 </h1>
-
+<img align="center" src="https://github.com/z-shell/z-a-submods/raw/main/docs/images/screenshot.png" alt="submods">
+</td></tr></table></div>
+  
 A annex (i.e. an extension for – [ZI](https://z-shell.github.io/zi))
 that allows to clone additional submodules when installing a plugin or
 snippet. The submodules are then automatically updated on the `zi update ...`
