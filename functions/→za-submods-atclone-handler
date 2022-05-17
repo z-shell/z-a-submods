@@ -19,8 +19,8 @@ for mod in "${mods[@]}"; do
   # Remove only leading and trailing whitespace
   parts=( "${parts[@]//((#s)[[:space:]]##|[[:space:]]##(#e))/}" )
   
-  +zi-message "{pre}submods-annex{ehi}: {rst}cloning submodule{ehi}: {pname}${parts[1]}{rst}" \
-  "{ehi}:to {info}${parts[2]}{rst}"
+  +zi-message "{pre}submods annex{ehi}: {rst}Cloning submodule{ehi}: {pname}${parts[1]}{rst}" \
+  "to{ehi}: {info}${parts[2]}{rst}"
   
   if [[ "${parts[1]}" != (http|https|ftp|ftps|scp)://* ]]; then
     parts[1]="https://github.com/${parts[1]}"
