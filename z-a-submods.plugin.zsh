@@ -16,8 +16,7 @@ if [[ $PMSPEC != *f* ]] {
 # https://z.digitalclouds.dev/community/zsh_plugin_standard#the-proposed-function-name-prefixes
 autoload -Uz →za-submods-atclone-handler \
 →za-submods-atpull-handler \
-→za-submods-atclone-help-handler \
-→za-submods-atpull-help-handler
+→za-submods-atclone-help-handler
 
 # An empty stub to fill the help handler fields
 →za-submods-null-handler() { :; }
