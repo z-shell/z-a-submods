@@ -1,3 +1,7 @@
+#  ============================================================================  #
+#  [ https://github.com/z-shell ] ❮ ZI ❯         [ (c) 2022 Z-SHELL COMMUNITY ]  #
+#  ============================================================================  #
+#
 # -*- mode: zsh; sh-indentation: 2; indent-tabs-mode: nil; sh-basic-offset: 2; -*-
 # vim: ft=zsh sw=2 ts=2 et
 
@@ -21,9 +25,9 @@ for mod in "${mods[@]}"; do
   
   +zi-message "{pre}submods annex{ehi}: {rst}Cloning submodule{ehi}: {pname}${parts[1]}{rst}" \
   "to{ehi}: {info}${parts[2]}{rst}"
-  
+
   if [[ "${parts[1]}" != (http|https|ftp|ftps|scp)://* ]]; then
     parts[1]="https://github.com/${parts[1]}"
   fi
-  command git -C "$dir" clone --progress "${parts[1]}" "${parts[2]}" |& ${ZI[BIN_DIR]}/lib/zsh/git-process-output.zsh
+  command git -C "$dir" clone --quiet --progress "${parts[1]}" "${parts[2]}" |& ${ZI[BIN_DIR]}/lib/zsh/git-process-output.zsh
 done
