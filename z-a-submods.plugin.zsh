@@ -24,9 +24,9 @@ autoload -Uz →za-submods-atclone-handler \
 
 @zi-register-annex "z-a-submods" hook:atclone-30 \
   →za-submods-atclone-handler \
-  →za-submods-atclone-help-handler \
-  →za-submods-null-handler "submods''" # register a new ice-mod: submods''
+  →za-submods-atclone-help-handler "submods''" # register a new ice-mod: submods''
 
 @zi-register-annex "z-a-submods" hook:%atpull-30 \
   →za-submods-atpull-handler \
-  →za-submods-null-handler
+  →za-submods-atpull-help-handler
+
