@@ -6,8 +6,7 @@
 # vim: ft=zsh sw=2 ts=2 et
 
 emulate -L zsh
-setopt extended_glob warn_create_global \
-typeset_silent no_short_loops rc_quotes no_auto_pushd
+setopt extended_glob warn_create_global typeset_silent no_short_loops rc_quotes no_auto_pushd
 
 [[ -z "${ICE[submods]}" ]] && return 0
 
