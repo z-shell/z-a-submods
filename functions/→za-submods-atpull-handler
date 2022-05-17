@@ -19,12 +19,12 @@ for mod in "${mods[@]}"; do
   # Remove only leading and trailing whitespace
   parts=( "${parts[@]//((#s)[[:space:]]##|[[:space:]]##(#e))/}" )
 
-  print -r -- "z-a-submods: ${ZI[col-bar]}@@${ZI[col-rst]} Updating submodule ${ZI[col-bar]}@@${ZI[col-rst]}: ${ZI[col-pname]}${parts[1]}${ZI[col-rst]}" \
-  "(directory: ${ZI[col-info]}${parts[2]}${ZI[col-rst]})"
+  +zi-message "{pre}submods annex{ehi}: {rst}Updating submodule{ehi}: {pname}${parts[1]}{rst}" \
+  "directory{ehi}: {info}${parts[2]}{rst}"
   if [[ "${parts[1]}" != (http|https|ftp|ftps|scp)://* ]]; then
     parts[1]="https://github.com/${parts[1]}"
   fi
-#TODO: #2 remove git -C
+
   command git -C "$dir/${parts[2]}" fetch
   lines=( ${(f)"$(command git -C "$dir/${parts[2]}" log --color --date=short --pretty=format:'%Cgreen%cd %h %Creset%s %Cred%d%Creset%n' ..FETCH_HEAD)"} )
   # Remove the (origin/master ...) segments, to expect only tags to appear
