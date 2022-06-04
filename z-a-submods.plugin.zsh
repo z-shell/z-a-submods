@@ -28,4 +28,3 @@ autoload -Uz →za-submods-atclone-handler \
 @zi-register-annex "z-a-submods" hook:%atpull-30 \
   →za-submods-atpull-handler \
   →za-submods-null-handler
-

@@ -1,8 +1,9 @@
 # -*- mode: zsh; sh-indentation: 2; indent-tabs-mode: nil; sh-basic-offset: 2; -*-
 # vim: ft=zsh sw=2 ts=2 et
 
-+zi-message "{nl}{msg}The ice {info2}submods''{rst} is currently" "being registered by the {pname}z-a-submods{rst}" \
-  "{nl}{msg}Its syntax is: {info2}submods'{uname}{user}{rst}/{pname}{plugin}{p} –>" "{var}{output-dir}{rst}{info2}; ...'{rst}{nl}" \
-  "{nl}{msg}It will clone the {uname}{user}{rst}/{pname}{plugin}{rst} from GitHub into the" "{var}{output-dir}{rst}" \
-  "inside the containing plugin or snippet." \
-  "{nl}{msg}The submodule will be correctly updated on" "{info2}\`zi update ...'{rst}{nl}"
+# TODO: do not register help as currently it dedicates the help to the subcommands
+#+zi-message "{nl}{msg}The ice {info2}submods''{rst} is currently" "being registered by the {pname}z-a-submods{rst}" \
+#  "{nl}{msg}Its syntax is: {info2}submods'{uname}{user}{rst}/{pname}{plugin}{p} –>" "{var}{output-dir}{rst}{info2}; ...'{rst}{nl}" \
+#  "{nl}{msg}It will clone the {uname}{user}{rst}/{pname}{plugin}{rst} from GitHub into the" "{var}{output-dir}{rst}" \
+#  "inside the containing plugin or snippet." \
+#  "{nl}{msg}The submodule will be correctly updated on" "{info2}\`zi update ...'{rst}{nl}"
