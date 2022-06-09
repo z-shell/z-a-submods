@@ -17,16 +17,13 @@
 
   local -a mods parts lines
   local mod
-
   mods=( ${(@s.;.)ICE[submods]} )
-
   for mod in "${mods[@]}"; do
     parts=( "${(@s:->:)mod}" )
     # Remove only leading and trailing whitespace
     parts=( "${parts[@]//((#s)[[:space:]]##|[[:space:]]##(#e))/}" )
 
-    +zi-message "{annex}submods-annex{ehi}:{rst} {msg}Updating submodule{ehi}: {pname}${parts[1]}{rst}" \
-    "directory{ehi}: {info}${parts[2]}{rst}"
+    +zi-message "{annex}submods-annex{ehi}:{rst} {msg}Updating submodule{ehi}: {pname}${parts[1]}{rst} directory{ehi}: {info}${parts[2]}{rst}"
     if [[ "${parts[1]}" != (http|https|ftp|ftps|scp)://* ]]; then
       parts[1]="https://github.com/${parts[1]}"
     fi
