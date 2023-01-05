@@ -1,0 +1,28 @@
+# -*- mode: zsh; sh-indentation: 2; indent-tabs-mode: nil; sh-basic-offset: 2; -*-
+# vim: ft=zsh sw=2 ts=2 et
+
+builtin emulate -L zsh ${=${options[xtrace]:#off}:+-o xtrace}
+builtin setopt extended_glob warn_create_global typeset_silent no_short_loops rc_quotes no_auto_pushd
+
+[[ -z "${ICE[submods]}" ]] && return 0
+
+[[ "$1" = plugin ]] && \
+local type="$1" user="$2" plugin="$3" id_as="$4" dir="$5" || \
+local type="$1" url="$2" id_as="$3" dir="$4"
+local -a mods parts
+local mod
+
+mods=( ${(@s.;.)ICE[submods]} )
+for mod in "${mods[@]}"; do
+  parts=( "${(@s:->:)mod}" )
+  # Remove only leading and trailing whitespace
+  parts=( "${parts[@]//((#s)[[:space:]]##|[[:space:]]##(#e))/}" )
+
+  +zi-message "{annex}submods-annex{ehi}:{rst} {msg}Cloning submodule{ehi}: {pname}${parts[1]}{rst}" \
+    "to{ehi}: {info}${parts[2]}{rst}"
+
+  if [[ "${parts[1]}" != (http|https|ftp|ftps|scp)://* ]]; then
+    parts[1]="https://github.com/${parts[1]}"
+  fi
+  command git -C "$dir" clone --quiet --progress "${parts[1]}" "${parts[2]}" |& ${ZI[BIN_DIR]}/lib/zsh/git-process-output.zsh
+done

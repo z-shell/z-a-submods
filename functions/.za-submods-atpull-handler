@@ -1,0 +1,36 @@
+# -*- mode: zsh; sh-indentation: 2; indent-tabs-mode: nil; sh-basic-offset: 2; -*-
+# vim: ft=zsh sw=2 ts=2 et
+
+builtin emulate -L zsh ${=${options[xtrace]:#off}:+-o xtrace}
+builtin setopt extended_glob warn_create_global typeset_silent no_short_loops rc_quotes no_auto_pushd
+
+[[ -z "${ICE[submods]}" ]] && return 0
+
+[[ "$1" = plugin ]] && \
+local type="$1" user="$2" plugin="$3" id_as="$4" dir="$5" || \
+local type="$1" url="$2" id_as="$3" dir="$4"
+
+local -a mods parts lines
+local mod
+
+mods=( ${(@s.;.)ICE[submods]} )
+for mod in "${mods[@]}"; do
+  parts=( "${(@s:->:)mod}" )
+  # Remove only leading and trailing whitespace
+  parts=( "${parts[@]//((#s)[[:space:]]##|[[:space:]]##(#e))/}" )
+
+  +zi-message "{annex}submods-annex{ehi}:{rst} {msg}Updating submodule{ehi}: {pname}${parts[1]}{rst} directory{ehi}: {info}${parts[2]}{rst}"
+  if [[ "${parts[1]}" != (http|https|ftp|ftps|scp)://* ]]; then
+    parts[1]="https://github.com/${parts[1]}"
+  fi
+
+  command git -C "$dir/${parts[2]}" fetch
+  lines=( ${(f)"$(command git -C "$dir/${parts[2]}" log --color --date=short --pretty=format:'%Cgreen%cd %h %Creset%s %Cred%d%Creset%n' ..FETCH_HEAD)"} )
+  # Remove the (origin/master ...) segments, to expect only tags to appear
+  lines=( "${(S)lines[@]//\(([,[:blank:]]#(origin|HEAD|main|master)[^a-zA-Z]##(HEAD|origin|main|master)[,[:blank:]]#)#\)/}" )
+  (( $#lines )) && print -rl -- "${lines[@]}"
+
+  command git -C "$dir/${parts[2]}" pull --no-stat ${=ICE[pullopts]:---ff-only} origin |& \
+  command egrep -v '(FETCH_HEAD|up to date|From.*://)'; found=$?
+  [[ $found == 1 ]] && return 0
+done
