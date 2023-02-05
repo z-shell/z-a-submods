@@ -11,7 +11,7 @@ local type="$1" user="$2" plugin="$3" id_as="$4" dir="$5" || \
 local type="$1" url="$2" id_as="$3" dir="$4"
 
 local -a mods parts lines
-local mod
+local mod ret
 
 mods=( ${(@s.;.)ICE[submods]} )
 for mod in "${mods[@]}"; do
@@ -31,6 +31,6 @@ for mod in "${mods[@]}"; do
   (( $#lines )) && print -rl -- "${lines[@]}"
 
   command git -C "$dir/${parts[2]}" pull --no-stat ${=ICE[pullopts]:---ff-only} origin |& \
-  command egrep -v '(FETCH_HEAD|up to date|From.*://)'; found=$?
-  [[ $found == 1 ]] && return 0
+  command grep -E -v '(FETCH_HEAD|up to date|From.*://)'; ret=$?
+  (( ret )) && return 0
 done
